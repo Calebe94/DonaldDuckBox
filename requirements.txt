@@ -1,3 +1,2 @@
 python-vlc
-playsound
-pyglet
+pygletmutagen
