@@ -13,7 +13,8 @@ def play(track):
         p.play()
         time.sleep(int(audio.info.length))
         pass
-    except Exception as identifier:
+    except Exception as error:
+        print(error)
         pass
 
 def play_donald_laugh():
