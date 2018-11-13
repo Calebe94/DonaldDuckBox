@@ -13,12 +13,16 @@ class Presence(object):
 
     def __read(self):
         try:
-            serial_data = self.__device.write('g')
-            print(serial_data)
-            if serial_data == '1':
-                return True
-            else:
-                return False
+            self.__device.write('g')
+            response = ""
+            while '\n' not in response:
+                response += self.__device.read()
+                if("TIMEOUT" in response):
+                    return False
+                elif response == '1':
+                    return True
+                else:
+                    return False
             pass
         except Exception as identifier:
             print("> Presence READ: "+str(identifier))
