@@ -23,7 +23,6 @@ def main():
     while True:
         if presence.has_presence() == True:
             motor.on()
-            print("> Motor ON!")
             # donaldduck.play(DONALD_TRACK)
 
             p = vlc.MediaPlayer(AUDIO_PATH+"/"+DONALD_TRACK)
@@ -31,14 +30,18 @@ def main():
             start = time.time()
 
             while audio.info.length > (time.time() - start):
-                if ((time.time()-start) > 0.0) and (time.time()-start) < 1.0:
+                if ((time.time()-start) > 0.0) and (time.time()-start) < 5.0):
                     motor.on()
-                elif ((time.time()-start) > 1.1) and ((time.time()-start) < 20.0):
+                    print("> Motor ON!")
+                elif ((time.time()-start) > 5.1) and ((time.time()-start) < 20.0):
                     motor.off()
-                elif ((time.time()-start) > 20.1) and ((time.time()-start) < 22.0):
+                    print("> Motor OFF!")
+                elif ((time.time()-start) > 20.1) and ((time.time()-start) < 27.0):
                     motor.on()
-                elif ((time.time()-start) > 21.1):
+                    print("> Motor ON!")
+                elif ((time.time()-start) > 27.1):
                     motor.off()
+                    print("> Motor OFF!")
                     
                 
                     
