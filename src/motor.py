@@ -1,37 +1,30 @@
 from constants import GPIO_BASE_PATH
 from constants import MOTOR_PIN
+import DeviceSerial
 
-def init():
-    try:
-        # Exporting GPIO 13 used by RELAY
-        with file(GPIO_BASE_PATH+"/export", "w") as export:
-            export.write(MOTOR_PIN)
-            export.close()
-
-        # Setting direction as output
-        with file(GPIO_BASE_PATH+"/gpio"+MOTOR_PIN+"/direction", "w") as direction:
-            direction.write("out")
-            direction.close()
+class Motor(object):
+    def __init__(self):
+        try:
+            self.__device = DeviceSerial.DeviceSerial("/dev/ttyACM0", 9600)
+        except Exception as identifier:
+            print("> Motor: "+str(identifier))
+            pass
     
-        return "OK"
-    except Exception as error:
-        print(error)
-        pass
-
-def on():
-    print("> Motor ON!")
+    def on(self):
+        try:
+            self.__device.write('l')
+            pass
+        except Exception as identifier:
+            print("> Motor ON: "+str(identifier))
+            pass
     
-    with file(GPIO_BASE_PATH+"/gpio"+MOTOR_PIN+"/value", "w") as direction:
-        direction.write("1")
-        direction.close()
-    return "OK"
-    
-def off():
-    print("> Motor OFF!")
-    with file(GPIO_BASE_PATH+"/gpio"+MOTOR_PIN+"/value", "w") as direction:
-        direction.write("0")
-        direction.close()
-    return "OK"
+    def off(self):
+        try:
+            self.__device.write('d')
+            pass
+        except Exception as identifier:
+            print("> Motor OFF: "+str(identifier))
+            pass
 
-def switch():
-    return "SWITCH MOTOR"
+    def switch(self):
+        return "SWITCH"
