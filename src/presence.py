@@ -15,15 +15,7 @@ class Presence(object):
         try:
             self.__device.write('g')
             response = self.__device.read()
-            while '\n' not in response:
-                response += self.__device.read()
-                print(response)
-                if("TIMEOUT" in response):
-                    return False
-                elif response == '1':
-                    return True
-                else:
-                    return False
+            print(response)
             pass
         except Exception as identifier:
             print("> Presence READ: "+str(identifier))
