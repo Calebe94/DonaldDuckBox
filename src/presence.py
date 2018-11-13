@@ -24,7 +24,6 @@ class Presence(object):
         except Exception as identifier:
             print("> Presence READ: "+str(identifier))
             return False
-            pass
 
     def has_presence(self):
         # true_or_false = random.random()
