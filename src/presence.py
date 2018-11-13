@@ -14,6 +14,7 @@ class Presence(object):
     def __read(self):
         try:
             serial_data = self.__device.write('g')
+            print(serial_data)
             if serial_data == '1':
                 return True
             else:
