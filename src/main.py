@@ -49,10 +49,7 @@ def main():
                     motor.off()
                     print("> Motor OFF!")
                     
-                
-                    
-            # time.sleep(int(audio.info.length))
-            # Measure Elapsed Time
+            
             print("> Playing Track!")
             motor.off()
             print("> Motor OFF!")
