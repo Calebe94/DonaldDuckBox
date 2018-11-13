@@ -50,7 +50,7 @@ def main():
             print("> Playing Track!")
             motor.off()
             print("> Motor OFF!")
-        time.sleep(1)
+        time.sleep(0.5)
 
 if __name__ == "__main__":
     main()
