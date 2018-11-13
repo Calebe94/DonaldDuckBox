@@ -15,10 +15,15 @@ class Presence(object):
         try:
             self.__device.write('g')
             response = self.__device.read()
-            print(response)
+            if response.strip() == "1":
+                return True
+            else:
+                return False
+            # print(response)
             pass
         except Exception as identifier:
             print("> Presence READ: "+str(identifier))
+            return False
             pass
 
     def has_presence(self):
