@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0                                     # version of an app.
+Name=DonaldDuckBox                                 # name of an app.
+Exec=/home/fator/DonaldDuckBox/./startup.sh          # command used to launch an app.
+Terminal=false                                  # whether an app requires to be run in a terminal.
+Type=Application                                # type.
+Categories=Application;Network;Security;        # categories in which this app should be listed.
