@@ -30,7 +30,7 @@ def main():
             start = time.time()
 
             while audio.info.length > (time.time() - start):
-                if ((time.time()-start) > 0.0) and ((time.time()-start) < 5.0)):
+                if ((time.time()-start) > 0.0) and ((time.time()-start) < 5.0):
                     motor.on()
                     print("> Motor ON!")
                 elif ((time.time()-start) > 5.1) and ((time.time()-start) < 20.0):
